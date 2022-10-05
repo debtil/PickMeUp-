@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario';
+
+import { UsuarioFireBaseService } from 'src/app/services/usuario-fire-base.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  usuarios!: Usuario[];
+  constructor(private router: Router, private usuarioFS: UsuarioFireBaseService) {
+  
+    }
 
   ngOnInit(): void {
   }
-
+  
 }

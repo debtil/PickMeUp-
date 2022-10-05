@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth'
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  formLogin: FormGroup;
+  constructor(private formBuilder: FormBuilder, private auth: Auth) { 
+    this.formLogin = this.formBuilder.group(
+      {
+        email: ['', [Validators.required]], 
+        senha: ['', Validators.required]
+      })
+  }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    createUserWithEmailAndPassword(this.auth, this.formLogin.controls['email'].value, this.formLogin.controls['senha'].value)
   }
 
 }

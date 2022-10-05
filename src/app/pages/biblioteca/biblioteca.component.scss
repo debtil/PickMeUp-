@@ -1,0 +1,38 @@
+.card {
+    margin-left: 0.6em;
+    margin-right: 0.4em;
+    padding: 16px;
+    background-color: gray;
+  }
+
+  .content {
+    padding: 16px;
+    background-color: gray;
+}
+
+.content > mat-card {
+    width: 200px;
+    margin-bottom: 16px;
+    
+}
+
+.botao{
+    margin-left: 4em;
+}
+
+.class{
+    
+    margin-left: 100px;
+}
+
+.main {
+    background-color: aquamarine;
+    margin-top: 15px;
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+
+.box-main{
+    background-color: black;
+    height: 100%;
+  }

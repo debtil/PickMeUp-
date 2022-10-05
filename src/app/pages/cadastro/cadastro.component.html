@@ -1,1 +1,45 @@
-<p>cadastro works!</p>
+
+    <!--<section id="caixa-cadastro">
+        <form [formGroup]="userForm" (submit)="cadastrar()">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" class="form-control" id="nome" formControlName="nome">
+            </div><br>
+
+            <div class="form-group">
+                <label for="nome">Email</label>
+                <input type="text" class="form-control" id="email" formControlName="email">
+            </div><br>
+
+            <div class="form-group">
+                <label for="preco">Senha</label>
+                <input type="text" class="form-control" id="senha" formControlName="senha">
+            </div>
+
+            <button mat-flat-button type="submit" id="btn-cadastro">Cadastrar</button> 
+        </form>
+    </section>
+</body>-->
+<body>
+    <div class="login-box">
+        <h2>Criar Conta</h2>
+        <mat-list>
+          <form [formGroup]="formCadastro" (ngSubmit)="submitForm()">
+          
+            <mat-list-item class="user-box"><input type="text" placeholder="Nome Completo" formControlName="nome"></mat-list-item>
+            
+            <mat-list-item class="user-box"><input type="text" placeholder="Email" formControlName="email"></mat-list-item>
+            
+            <mat-list-item class="user-box"><input type="text" placeholder="Senha" formControlName="senha"></mat-list-item>
+           
+          <button id="botao-cadastro" type="submit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Cadastrar-se
+          </button>
+          </form>
+        </mat-list>
+      </div>
+    </body>
