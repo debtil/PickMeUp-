@@ -1,14 +1,18 @@
 
-<div class="main">
-  <form [formGroup]="FormPerfil" (ngSubmit)="submitForm()">
-    <input type="text" placeholder="nome" formControlName="nome">
-    <input type="text" placeholder="email" formControlName="email">
-    <input type="text" placeholder="senha" formControlName="senha">
-    <button id="botao-cadastro" type="submit">Cadastrar-se</button>
-  </form>
-</div>
-
-
+<div class="login-box">
+  <h2>Perfil</h2>
+  <mat-list>
+    <form [formGroup]="FormPerfil" (ngSubmit)="submitForm()">
+    
+      <mat-list-item class="user-box"><input [disabled]="true" type="text" placeholder="Nome Completo" formControlName="nome"></mat-list-item>
+      
+      <mat-list-item class="user-box"><input [disabled]="true" type="text" placeholder="Email" formControlName="email"></mat-list-item>
+      
+      <mat-list-item class="user-box"><input [disabled]="true" type="text" placeholder="Senha" formControlName="senha"></mat-list-item>
+     
+      <button id="botao-cadastro" type="submit">Editar</button>
+    </form>
+  </mat-list>
 
 <!--
   <div id="conteudo">
