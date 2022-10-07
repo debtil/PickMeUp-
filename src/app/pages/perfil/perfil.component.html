@@ -4,13 +4,13 @@
   <mat-list>
     <form [formGroup]="FormPerfil" (ngSubmit)="submitForm()">
     
-      <mat-list-item class="user-box"><input [disabled]="true" type="text" placeholder="Nome Completo" formControlName="nome"></mat-list-item>
+      <mat-list-item class="user-box"><input type="text" placeholder="Nome Completo" formControlName="nome"></mat-list-item>
       
-      <mat-list-item class="user-box"><input [disabled]="true" type="text" placeholder="Email" formControlName="email"></mat-list-item>
+      <mat-list-item class="user-box"><input type="text" placeholder="Email" formControlName="email"></mat-list-item>
       
-      <mat-list-item class="user-box"><input [disabled]="true" type="text" placeholder="Senha" formControlName="senha"></mat-list-item>
+      <mat-list-item class="user-box"><input type="text" placeholder="Senha" formControlName="senha"></mat-list-item>
      
-      <button id="botao-cadastro" type="submit">Editar</button>
+      <button id="botao-cadastro" type="submit" (click)="alterarEdicao()">Editar</button>
     </form>
   </mat-list>
 

@@ -38,7 +38,7 @@ export class PerfilComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-
+    
     /*this.user = this.authService.userLogged()
    .then(() => {
     if(this.user === null){
@@ -58,6 +58,14 @@ export class PerfilComponent implements OnInit {
    })*/
   }
 
+  alterarEdicao(){
+    if(this.edicao == true){
+      this.edicao = false;
+    }else{
+      this.edicao = true;
+    }
+  }
+  
   submitForm(): boolean{
     this.isSubmitted = true;
     if(!this.FormPerfil.valid){
