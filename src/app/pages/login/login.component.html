@@ -1,18 +1,17 @@
-<div class="main">
+<body>
+  <div class="main">
     <div class="login-box">
-        <h2>Criar Conta</h2>
+        <h2>Login</h2>
         <mat-list>
           <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
-          
-            <mat-list-item class="user-box"><input type="text" placeholder="Nome Completo" formControlName="nome"></mat-list-item>
             
             <mat-list-item class="user-box"><input type="text" placeholder="Email" formControlName="email"></mat-list-item>
             
             <mat-list-item class="user-box"><input type="text" placeholder="Senha" formControlName="senha"></mat-list-item>
            
-            <button id="botao-cadastro" type="submit">Cadastrar-se</button>
+            <button id="botao-cadastro" type="submit">Entrar</button>
           </form>
         </mat-list>
       </div>
-</div>
-<p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+  </div>
+</body>

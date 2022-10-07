@@ -9,6 +9,7 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BibliotecaComponent } from './pages/biblioteca/biblioteca.component';
+import { LoginComponent } from './pages/login/login.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -21,7 +22,6 @@ import {MatSelectModule} from '@angular/material/select';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app'
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment.prod';
-import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,6 @@ import { LoginComponent } from './pages/login/login.component';
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    
     MatSelectModule,
     BrowserModule,
     BrowserAnimationsModule,

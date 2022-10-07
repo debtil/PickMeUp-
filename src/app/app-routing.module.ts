@@ -6,10 +6,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 
+
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent,
+    component: HomeComponent, 
   },
   {
     path: 'cadastro',

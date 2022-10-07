@@ -102,6 +102,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "PickMeUp:build:production",
+            "firebaseProject": "pickmeup-24ef1",
+            "firebaseHostingSite": "pickmeup-24ef1"
+          }
         }
       }
     }

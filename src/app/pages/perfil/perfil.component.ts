@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
+import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioFireBaseService } from 'src/app/services/usuario-fire-base.service';
 
 
@@ -11,22 +12,55 @@ import { UsuarioFireBaseService } from 'src/app/services/usuario-fire-base.servi
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
-  usuario!: Usuario ;
-  usuarios: Usuario[] = [];
-  FormCadastro!: FormGroup;
+  FormPerfil!: FormGroup;
   data!: string;
   isSubmitted: boolean = false;
   edicao: boolean = true;
+  user: any;
+  nome: any
 
-  constructor(private usuarioFS: UsuarioFireBaseService, private formBuilder: FormBuilder, private router: Router) {}
-
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {}
   ngOnInit(): void {
-    this.carregarUsers();
+
+    this.FormPerfil = this.formBuilder.group({
+      nome: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      senha: ['depois', [Validators.required]],
+    })
+    
+    let user = this.authService.userLogged();
+    if(user !== null) {
+      user.providerData.forEach((profile: any) => {
+        this.FormPerfil.controls['nome'].setValue(profile.displayName)
+        this.FormPerfil.controls['email'].setValue(profile.email)
+      })
+    }else {
+      this.router.navigate(['/login']);
+    }
+
+
+    /*this.user = this.authService.userLogged()
+   .then(() => {
+    if(this.user === null){
+      this.router.navigate(['/login']);
+    }else{
+      this.user.providerData.forEach((profile: any) => {
+        this.FormPerfil = this.formBuilder.group({
+          nome: [profile.displayName, [Validators.required]],
+          email: [profile.email, [Validators.required]],
+          senha: [profile.password, [Validators.required]],
+        })
+      })
+    }
+   })
+   .catch(() => {
+    this.router.navigate(['/login']);
+   })*/
   }
 
   submitForm(): boolean{
     this.isSubmitted = true;
-    if(!this.FormCadastro.valid){
+    if(!this.FormPerfil.valid){
       alert("Todos os campos são Obrigatórios!");
       return false;
     }
@@ -41,8 +75,14 @@ export class PerfilComponent implements OnInit {
       this.edicao = true;
     }
   }
-/*
+
   editar(){
+    this.authService.editUser(this.FormPerfil.controls['nome'].value, this.FormPerfil.controls['nome'].value,
+    this.FormPerfil.controls['nome'].value);
+  }
+
+
+/*editar(){
     this.usuarioFS.editarUsuario(this.FormCadastro.value, this.usuario.id)
     .then(() => {
       alert("Edição realizada com sucesso!");
@@ -65,9 +105,4 @@ export class PerfilComponent implements OnInit {
       })
     })
   }*/
-
-  carregarUsers() {
-    this.usuarioFS.readUser().subscribe((data: Usuario[]) => {this.usuarios = data})
-  }
-  
 }

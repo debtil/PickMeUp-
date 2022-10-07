@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pickmeup-24ef1": {
+      "hosting": {
+        "PickMeUp": [
+          "pickmeup-24ef1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pickmeup-24ef1"
+  }
+}
