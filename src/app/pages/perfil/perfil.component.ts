@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
     this.FormPerfil = this.formBuilder.group({
       nome: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      senha: ['****', [Validators.required]],
+      senha: ['', [Validators.required]],
     })
     
     let user = this.authService.userLogged();
@@ -72,7 +72,7 @@ export class PerfilComponent implements OnInit {
       alert("Todos os campos são Obrigatórios!");
       return false;
     }
-      //this.editar();
+      this.editar();
       return true;
   }
 
@@ -84,7 +84,7 @@ export class PerfilComponent implements OnInit {
     }
   }
 
-  editar(){
+  private editar(){
     this.authService.editUser(this.FormPerfil.controls['nome'].value, this.FormPerfil.controls['nome'].value,
     this.FormPerfil.controls['nome'].value);
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FirebaseApp } from '@angular/fire/app';
 import { Router } from '@angular/router';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, updateEmail, updatePassword } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -42,10 +42,34 @@ export class AuthService {
    }
    
    editUser(novoNome: string, novoEmail: string, novaSenha: string){
-    this.createAuth();
-    let user = this.auth.currentUser;
-    return updateProfile(user, {displayName: novoNome}).then(() =>{
-      alert("Nome cadastrado!");
-    })
-   }
+      this.createAuth();
+      let user = this.auth.currentUser;
+      let nome ="";
+      let email = "";
+      let senha = "";
+
+      if(user !== null){
+        user.providerData.forEach((profile:any) => {
+           nome = profile.displayName;
+           email = profile.email;
+           senha = profile.password;
+        })
+      }
+
+      if(novoNome != nome){
+        return updateProfile(user, {displayName: novoNome}).then(() =>{
+          alert("Nome cadastrado!");
+         })
+       }
+       if(novoEmail != email){
+        alert("Email cadastrado!");
+         return updateEmail(user, novoEmail)
+       }
+       if(novaSenha != senha){
+        alert("Senha cadastrado!");
+         return updatePassword(user, novaSenha)
+       }
+       return user;
+    }
 }
+
