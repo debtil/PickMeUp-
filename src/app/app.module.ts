@@ -22,6 +22,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app'
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment.prod';
+import { FilmesComponent } from './pages/filmes/filmes.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { environment } from 'src/environments/environment.prod';
     HomeComponent,
     BibliotecaComponent,
     LoginComponent,
+    FilmesComponent,
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
