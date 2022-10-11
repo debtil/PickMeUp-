@@ -4,14 +4,16 @@
         <h2>Criar Conta</h2>
         <mat-list>
           <form [formGroup]="formCadastro" (ngSubmit)="submitForm()">
-          
-            <mat-list-item class="user-box"><input type="text" placeholder="Nome Completo" formControlName="nome"></mat-list-item>
+            <label style="padding-left: 16px;">Nome Completo: </label>
+            <mat-list-item class="user-box"><input type="text"  formControlName="nome"></mat-list-item>
             
-            <mat-list-item class="user-box"><input type="text" placeholder="Email" formControlName="email"></mat-list-item>
+            <label style="padding-left: 16px;">Email: </label>
+            <mat-list-item class="user-box"><input type="text"  formControlName="email"></mat-list-item>
             
-            <mat-list-item class="user-box"><input type="text" placeholder="Senha" formControlName="senha"></mat-list-item>
+            <label style="padding-left: 16px;">Senha: </label>
+            <mat-list-item class="user-box"><input type="text"  formControlName="senha"></mat-list-item>
            
-            <button id="botao-cadastro" type="submit">Cadastrar-se</button>
+            <button class="botao" type="submit">Cadastrar-se</button>
           </form>
         </mat-list>
       </div>

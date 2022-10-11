@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
     this.FormPerfil = this.formBuilder.group({
       nome: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      senha: ['', [Validators.required]],
+      senha: ['******', [Validators.required]],
     })
     
     let user = this.authService.userLogged();

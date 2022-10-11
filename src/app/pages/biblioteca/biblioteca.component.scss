@@ -2,13 +2,8 @@
     margin-left: 0.6em;
     margin-right: 0.4em;
     padding: 16px;
-    background-color: gray;
+    background-color: #8ab3cf;
   }
-
-  .content {
-    padding: 16px;
-    background-color: gray;
-}
 
 .content > mat-card {
     width: 200px;
@@ -20,19 +15,13 @@
     margin-left: 4em;
 }
 
-.class{
-    
-    margin-left: 100px;
+.main {
+  margin-left: 210px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+  padding-top: 10px;
+  background-color: #bdd1de;
 }
 
-.main {
-    background-color: aquamarine;
-    margin-top: 15px;
-    margin-left: 160px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
-  }
-
-.box-main{
-    background-color: black;
-    height: 100%;
-  }
+body{
+  background-color: #bdd1de;
+}

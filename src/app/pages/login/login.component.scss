@@ -1,17 +1,13 @@
 .main {
-    margin-left: 170px; /* Same as the width of the sidebar */
+    margin-left: 210px; /* Same as the width of the sidebar */
     padding: 0px 10px;
-    background-color: #f9f2e7;
-  }
-
-  html {
-    height: 100%;
+    background-color: #bdd1de;
   }
   body {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background-color: #f9f2e7;
+    background-color: #bdd1de;
   }
   
   .login-box {
@@ -22,7 +18,7 @@
     margin-left: 60px;
     padding: 60px;
     transform: translate(-50%, -50%);
-    background: #8fbe00;
+    background: #8ab3cf;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
@@ -60,4 +56,18 @@
     pointer-events: none;
     transition: .5s;
   }
+
+  .botao{
+    background-color: #bdd1de;
+    border: none;
+    margin-left: 15px;
+    height: 25px;
+    width: 250px;
+  }
+
+.botao:hover{
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  font-size: 15px;
+  cursor: pointer;
+}
   

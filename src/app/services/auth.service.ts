@@ -57,17 +57,17 @@ export class AuthService {
       }
 
       if(novoNome != nome){
-        return updateProfile(user, {displayName: novoNome}).then(() =>{
+         updateProfile(user, {displayName: novoNome}).then(() =>{
           alert("Nome cadastrado!");
          })
        }
        if(novoEmail != email){
-        alert("Email cadastrado!");
-         return updateEmail(user, novoEmail)
+          updateEmail(user, novoEmail);
+          alert("Email cadastrado!");
        }
        if(novaSenha != senha){
-        alert("Senha cadastrado!");
-         return updatePassword(user, novaSenha)
+         updatePassword(user, novaSenha);
+         alert("Senha cadastrada!");
        }
        return user;
     }
