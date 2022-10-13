@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'PickMeUP!';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
 
   irParaLogin() {
@@ -30,5 +31,15 @@ export class AppComponent {
 
   irParaPerfil() {
     this.router.navigate(['/perfil']);
+  }
+
+  disconnect() {
+    this.authService.logout()
+    .then(() => {
+      alert("usuário desconectado!")
+      this.irParaLogin()
+    }).catch((error) => {
+      alert(error)
+    });
   }
 }

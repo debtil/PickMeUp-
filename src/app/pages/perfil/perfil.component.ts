@@ -37,34 +37,8 @@ export class PerfilComponent implements OnInit {
     }else {
       this.router.navigate(['/login']);
     }
-
-    
-    /*this.user = this.authService.userLogged()
-   .then(() => {
-    if(this.user === null){
-      this.router.navigate(['/login']);
-    }else{
-      this.user.providerData.forEach((profile: any) => {
-        this.FormPerfil = this.formBuilder.group({
-          nome: [profile.displayName, [Validators.required]],
-          email: [profile.email, [Validators.required]],
-          senha: [profile.password, [Validators.required]],
-        })
-      })
-    }
-   })
-   .catch(() => {
-    this.router.navigate(['/login']);
-   })*/
   }
 
-  alterarEdicao(){
-    if(this.edicao == true){
-      this.edicao = false;
-    }else{
-      this.edicao = true;
-    }
-  }
   
   submitForm(): boolean{
     this.isSubmitted = true;
@@ -88,29 +62,4 @@ export class PerfilComponent implements OnInit {
     this.authService.editUser(this.FormPerfil.controls['nome'].value, this.FormPerfil.controls['nome'].value,
     this.FormPerfil.controls['nome'].value);
   }
-
-
-/*editar(){
-    this.usuarioFS.editarUsuario(this.FormCadastro.value, this.usuario.id)
-    .then(() => {
-      alert("Edição realizada com sucesso!");
-      this.router.navigate(["/home"]);
-    })
-    .catch((error) => {
-      alert("Erro ao editar dados");
-      console.log(error);
-    })
-  }*/
-  
-  /*carregarContatos() {
-    this.usuarioFS.getUsuarios()
-    .subscribe(res => {
-      this.usuarios = res.map(c => {
-        return {
-          id: c.payload.doc.id,
-          ...c.payload.doc.data() as Usuario
-        } as Usuario
-      })
-    })
-  }*/
 }
