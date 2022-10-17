@@ -34,4 +34,8 @@ export class RecuperacaoComponent implements OnInit {
   enviarRecuperacao(){
     this.authService.recuperacao(this.FormRecuper.controls['email'].value);
   }
+
+  getErrorControl(control: string, error: string): boolean {
+    return this.FormRecuper.controls[control].hasError(error)
+  }
 }

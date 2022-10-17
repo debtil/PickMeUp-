@@ -62,4 +62,8 @@ export class PerfilComponent implements OnInit {
   recuperacao(){
     this.authService.recuperacao(this.conta.email);
   }
+
+  getErrorControl(control: string, error: string): boolean {
+    return this.FormPerfil.controls[control].hasError(error)
+  }
 }

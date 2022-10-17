@@ -52,6 +52,10 @@ export class LoginComponent implements OnInit {
   irParaRecu(){
     this.router.navigate(['/recuperacao']);
   }
+
+  getErrorControl(control: string, error: string): boolean {
+    return this.formLogin.controls[control].hasError(error)
+  }
 }
 
 

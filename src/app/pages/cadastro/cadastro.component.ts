@@ -62,4 +62,7 @@ export class CadastroComponent implements OnInit {
     })
   }
 
+  getErrorControl(control: string, error: string): boolean {
+    return this.formCadastro.controls[control].hasError(error)
+  }
 }
