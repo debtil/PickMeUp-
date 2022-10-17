@@ -6,9 +6,14 @@ import { FilmesComponent } from './pages/filmes/filmes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { RecuperacaoComponent } from './pages/recuperacao/recuperacao.component';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    component: LoginComponent, 
+  },
   {
     path: 'home',
     component: HomeComponent, 
@@ -32,6 +37,10 @@ const routes: Routes = [
   {
     path: 'filme',
     component: FilmesComponent,
+  },
+  {
+    path: 'recuperacao',
+    component: RecuperacaoComponent,
   },
 ];
 

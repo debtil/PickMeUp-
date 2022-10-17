@@ -49,7 +49,7 @@ export class CadastroComponent implements OnInit {
     .then((userCredential) => {
       alert("Conta criada com sucesso!");
       const user = userCredential;
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
       //const userId = 'teste'
       // para mandar pro perfil ===> this.router.navigate(['/home/:id', userId]);
       console.log(user);

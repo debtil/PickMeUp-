@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FirebaseApp } from '@angular/fire/app';
 import { Router } from '@angular/router';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, updateEmail, updatePassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, updateEmail, updatePassword, sendPasswordResetEmail } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -38,38 +38,42 @@ export class AuthService {
 
    userLogged(){
     this.createAuth()
-    return this.auth.currentUser
-   }
-   
-   editUser(novoNome: string, novoEmail: string, novaSenha: string){
-      this.createAuth();
-      let user = this.auth.currentUser;
-      let nome ="";
-      let email = "";
-      let senha = "";
+    
+    let user = this.auth.currentUser;
+    let nome ="";
+    let email = "";
+    let senha = "";
 
-      if(user !== null){
+    if(user !== null){
         user.providerData.forEach((profile:any) => {
            nome = profile.displayName;
            email = profile.email;
            senha = profile.password;
         })
-      }
+    }
 
-      if(novoNome != nome){
-         updateProfile(user, {displayName: novoNome}).then(() =>{
-          alert("Nome cadastrado!");
-         })
-       }
-       if(novoEmail != email){
-          updateEmail(user, novoEmail);
-          alert("Email cadastrado!");
-       }
-       if(novaSenha != senha){
-         updatePassword(user, novaSenha);
-         alert("Senha cadastrada!");
-       }
-       return user;
+    let conta = {user: user, nome: nome, email: email, senha: senha}
+    return conta
+   }
+   
+   editUser(novoNome: string, novoEmail: string){
+      this.createAuth();
+      let user = this.auth.currentUser;
+      updateProfile(user, {displayName: novoNome}).then(() => {
+        updateEmail(user, novoEmail);
+        alert("email enviado!")
+      }).catch(() => {
+        alert("erro")
+      })
+    }
+
+    recuperacao(email: string){
+      this.createAuth();
+      sendPasswordResetEmail(this.auth, email).then(() => {
+        alert("Email para troca de senha enviado para" + " " + email);
+      }).catch(() => {
+        alert("Email não é válido!");
+      });
     }
 }
 

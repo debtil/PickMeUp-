@@ -9,9 +9,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AppComponent {
   title = 'PickMeUP!';
+  hidden: boolean = false;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {
+    let conta = authService.userLogged();
 
+    if(conta.user !== null) {
+      console.log(conta)
+      this.hidden = true
+    }else {
+      console.log('conta')
+      this.hidden = true
+    }
+    
+  }
 
   irParaLogin() {
     this.router.navigate(['/login']);

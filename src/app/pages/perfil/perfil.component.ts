@@ -18,21 +18,15 @@ export class PerfilComponent implements OnInit {
   edicao: boolean = true;
   user: any;
   nome: any
-
+  conta: any;
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {}
   ngOnInit(): void {
+    this.conta = this.authService.userLogged();
 
-    this.FormPerfil = this.formBuilder.group({
-      nome: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      senha: ['******', [Validators.required]],
-    })
-    
-    let user = this.authService.userLogged();
-    if(user !== null) {
-      user.providerData.forEach((profile: any) => {
-        this.FormPerfil.controls['nome'].setValue(profile.displayName)
-        this.FormPerfil.controls['email'].setValue(profile.email)
+    if(this.conta) {
+      this.FormPerfil = this.formBuilder.group({
+        nome: [this.conta.nome, [Validators.required]],
+        email: [this.conta.email, [Validators.required]],
       })
     }else {
       this.router.navigate(['/login']);
@@ -43,6 +37,8 @@ export class PerfilComponent implements OnInit {
   submitForm(): boolean{
     this.isSubmitted = true;
     if(!this.FormPerfil.valid){
+      this.isSubmitted = false;
+      this.FormPerfil.reset();
       alert("Todos os campos são Obrigatórios!");
       return false;
     }
@@ -59,7 +55,11 @@ export class PerfilComponent implements OnInit {
   }
 
   private editar(){
-    this.authService.editUser(this.FormPerfil.controls['nome'].value, this.FormPerfil.controls['nome'].value,
-    this.FormPerfil.controls['nome'].value);
+    
+    this.authService.editUser(this.FormPerfil.controls['nome'].value, this.FormPerfil.controls['email'].value);
+  }
+
+  recuperacao(){
+    this.authService.recuperacao(this.conta.email);
   }
 }

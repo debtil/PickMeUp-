@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { 
     this.formLogin = this.formBuilder.group(
       {
-        email: ['', [Validators.required]], 
+        email: ['', [Validators.required, Validators.email]], 
         senha: ['', [Validators.required, Validators.minLength(6)]]
       })
   }
@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
   submitForm(): boolean{
     this.isSubmitted = true
     if(!this.formLogin.valid) {
+      this.isSubmitted = false;
+      this.formLogin.reset();
       alert("Todos os campos são obrigatórios!")
       return false
     }
@@ -45,6 +47,10 @@ export class LoginComponent implements OnInit {
       const errorMessage = error.message;
       alert(error)
     })
+  }
+
+  irParaRecu(){
+    this.router.navigate(['/recuperacao']);
   }
 }
 

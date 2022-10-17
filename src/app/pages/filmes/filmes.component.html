@@ -1,12 +1,18 @@
 <body>
     <div class="main">
-        <label>Digite o nome do filme: </label>
-        <input>
-        <button>Pesquisar</button>
-
-        <label>Filme recomendado:</label>
-        <label>Diretor:</label>
-        <label>Gênero</label>
-        <label>Nota</label>
-    </div>
-</body>
+        <h2>Buscar Recomendação</h2>
+        <mat-list>
+          <form >
+            <label style="padding-left: 16px;">Digite o nome do filme </label>
+            <mat-list-item class="user-box"><input type="text"  placeholder="Interestelar"></mat-list-item>
+            <button class="botao" type="submit">Pesquisar</button>
+          </form>
+          <mat-list-item style="padding-left: 16px;">Nome: </mat-list-item>
+          <mat-list-item style="padding-left: 16px;">Diretor: </mat-list-item>
+          <mat-list-item style="padding-left: 16px;">Sinopse: </mat-list-item>
+          <mat-list-item style="padding-left: 16px;">Gênero: </mat-list-item>
+          <mat-list-item style="padding-left: 16px;">Nota: </mat-list-item>
+          <button class="botao" type="submit">Favoritar</button>
+        </mat-list>
+      </div>
+    </body>

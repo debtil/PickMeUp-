@@ -20,12 +20,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.carregarUsuarios();
 
-    let user = this.authService.userLogged();
-    if(user !== null) {
-      user.providerData.forEach((profile: any) => {
-        this.nome = profile.displayName;
-        alert(profile.email)
-      })
+    let conta = this.authService.userLogged();
+    if(conta !== null) {
+      this.nome = conta.nome
     }else {
       this.router.navigate(['/login']);
     }
@@ -36,4 +33,8 @@ export class HomeComponent implements OnInit {
     this.usuarioFS.readUser().subscribe((data: Usuario[]) => {this.usuarios = data})
   }
   
+
+  irParaFilme(){
+    this.router.navigate(['/filme']);
+  }
 }

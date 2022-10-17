@@ -1,0 +1,41 @@
+.main {
+    margin-left: 210px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+    padding-top: 10px;
+    background-color: #bdd1de;
+    align-items: center;
+    margin-left: 650px;
+  }
+  
+  body{
+    background-color: #bdd1de;
+  }
+
+  #label{
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .botao{    
+    background-color:#8ab3cf ;
+    border: none;
+    font-size: 20px;
+    height: 28px;
+    margin-left: 51px;
+    margin-top: 10px;
+  }
+  .botao:hover{
+    font-size: 25px;
+
+    cursor: pointer;
+  }
+
+  .user-box input{
+    background-color: #8ab3cf; 
+    border: none;
+    height: 30px;
+  }
+
+  .info{
+    padding-top: 100px;
+  }

@@ -23,6 +23,8 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app'
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment.prod';
 import { FilmesComponent } from './pages/filmes/filmes.component';
+import { AuthService } from './services/auth.service';
+import { RecuperacaoComponent } from './pages/recuperacao/recuperacao.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { FilmesComponent } from './pages/filmes/filmes.component';
     BibliotecaComponent,
     LoginComponent,
     FilmesComponent,
+    RecuperacaoComponent,
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
