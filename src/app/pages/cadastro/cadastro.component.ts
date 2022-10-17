@@ -15,10 +15,19 @@ import { AuthService } from 'src/app/services/auth.service';
 export class CadastroComponent implements OnInit {
   formCadastro: FormGroup = this.formBuilder.group({}); 
   isSubmitted: boolean = false;
-  firebaseErrorMessage!: string;
+  hidden: boolean = false;
+
 
   constructor(private formBuilder: FormBuilder, private router: Router, private usuarioFS: UsuarioFireBaseService,
      private authService: AuthService) { 
+      let user = this.authService.userLogged();
+      if(user !== null) {
+        console.log(user)
+        this.hidden = false
+      }else {
+        console.log('conta')
+        this.hidden = true
+      }
   }
 
   ngOnInit(): void {
@@ -65,4 +74,35 @@ export class CadastroComponent implements OnInit {
   getErrorControl(control: string, error: string): boolean {
     return this.formCadastro.controls[control].hasError(error)
   }
+
+
+  irParaLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  irParaCadastro() {
+    this.router.navigate(['/cadastro']);
+  }
+
+  irParaBibli() {
+    this.router.navigate(['/biblioteca']);
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home']);
+  }
+
+  irParaPerfil() {
+    this.router.navigate(['/perfil']);
+  }
+
+  disconnect() {
+    this.authService.logout()
+    .then(() => {
+      alert("usuário desconectado!")
+      this.irParaLogin()
+    }).catch((error) => {
+      alert(error)
+    });
+}
 }

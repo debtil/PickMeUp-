@@ -11,7 +11,17 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RecuperacaoComponent implements OnInit {
   FormRecuper!: FormGroup;
   isSubmitted: boolean = false;
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
+  hidden: boolean = false;
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { 
+    let user = this.authService.userLogged();
+      if(user !== null) {
+        console.log(user)
+        this.hidden = true
+      }else {
+        console.log('conta')
+        this.hidden = false
+      }
+  }
 
   ngOnInit(): void {
     this.FormRecuper = this.formBuilder.group({
@@ -37,5 +47,36 @@ export class RecuperacaoComponent implements OnInit {
 
   getErrorControl(control: string, error: string): boolean {
     return this.FormRecuper.controls[control].hasError(error)
+  }
+
+
+  irParaLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  irParaCadastro() {
+    this.router.navigate(['/cadastro']);
+  }
+
+  irParaBibli() {
+    this.router.navigate(['/biblioteca']);
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home']);
+  }
+
+  irParaPerfil() {
+    this.router.navigate(['/perfil']);
+  }
+
+  disconnect() {
+    this.authService.logout()
+    .then(() => {
+      alert("usuário desconectado!")
+      this.irParaLogin()
+    }).catch((error) => {
+      alert(error)
+    });
   }
 }

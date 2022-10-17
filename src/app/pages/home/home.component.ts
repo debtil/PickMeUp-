@@ -13,8 +13,16 @@ import { UsuarioFireBaseService } from 'src/app/services/usuario-fire-base.servi
 export class HomeComponent implements OnInit {
   usuarios!: Usuario[];
   nome!: string;
+  hidden: boolean = false;
   constructor(private router: Router, private authService: AuthService, private usuarioFS: UsuarioFireBaseService) {
-  
+    let user = this.authService.userLogged();
+      if(user !== null) {
+        console.log(user)
+        this.hidden = true
+      }else {
+        console.log('conta')
+        this.hidden = false
+      }
     }
 
   ngOnInit(): void {
@@ -36,5 +44,39 @@ export class HomeComponent implements OnInit {
 
   irParaFilme(){
     this.router.navigate(['/filme']);
+  }
+
+  irParaRecu(){
+    this.router.navigate(['/recuperacao']);
+  }
+
+  irParaLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  irParaCadastro() {
+    this.router.navigate(['/cadastro']);
+  }
+
+  irParaBibli() {
+    this.router.navigate(['/biblioteca']);
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home']);
+  }
+
+  irParaPerfil() {
+    this.router.navigate(['/perfil']);
+  }
+
+  disconnect() {
+    this.authService.logout()
+    .then(() => {
+      alert("usuário desconectado!")
+      this.irParaLogin()
+    }).catch((error) => {
+      alert(error)
+    });
   }
 }

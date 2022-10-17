@@ -10,16 +10,17 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AppComponent {
   title = 'PickMeUP!';
   hidden: boolean = false;
+  toDisplay = false;
 
   constructor(private router: Router, private authService: AuthService) {
-    let conta = authService.userLogged();
+    let user = authService.userLogged();
 
-    if(conta.user !== null) {
-      console.log(conta)
+    if(user) {
+      console.log(user)
       this.hidden = true
     }else {
       console.log('conta')
-      this.hidden = true
+      this.hidden = false
     }
     
   }
@@ -52,5 +53,9 @@ export class AppComponent {
     }).catch((error) => {
       alert(error)
     });
+  }
+  
+  toggleData() {
+    this.toDisplay = !this.toDisplay;
   }
 }
