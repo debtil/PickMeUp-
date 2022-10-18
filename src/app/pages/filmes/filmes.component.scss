@@ -2,13 +2,13 @@
     margin-left: 210px; /* Same as the width of the sidebar */
     padding: 0px 10px;
     padding-top: 10px;
-    background-color: #f7a344;
+    background-color: #9ebcd0;
     align-items: center;
     margin-left: 650px;
   }
   
   body{
-    background-color: #f7a344;
+    background-color: #9ebcd0;
   }
 
   #label{
@@ -17,7 +17,7 @@
   }
 
   .botao{
-    background-color: #EB7723;
+    background-color: #305cbd;
     border: none;
     margin-left: 15px;
     height: 25px;
@@ -25,13 +25,13 @@
   }
 
 .botao:hover{
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  box-shadow: 0 2px 2px rgba(0,0,0,.6);
   font-size: 15px;
   cursor: pointer;
 }
 
   .user-box input{
-    background-color: #EB7723; 
+    background-color: #305cbd; 
     border: none;
     height: 30px;
     width: 250px;
@@ -50,7 +50,7 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #EB7723; /* Black */
+  background-color: #325193; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -62,7 +62,7 @@
   font-size: 25px;
   color: #111;
   display: block;
-  background-color: #EB7723;
+  background-color: #325193;
   border: none;
 }
 
