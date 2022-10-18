@@ -1,19 +1,24 @@
+.main {
+  margin-left: 210px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+  background-color: #f7a344;
+}
 body {
   margin:0;
   padding:0;
   font-family: sans-serif;
-  background-color: #bdd1de;
+  background-color: #f7a344;
 }
 
 .login-box {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 400px;
+  width: 900px;
   margin-left: 60px;
   padding: 60px;
   transform: translate(-50%, -50%);
-  background: #8ab3cf;
+  background: #F58E00;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
@@ -53,67 +58,77 @@ body {
 }
 
 .botao{
-  background-color: #bdd1de;
+  background-color: #f7a344;
   border: none;
   margin-left: 15px;
-  height: 25px;
-  width: 250px;
+  height: 35px;
+  width: 750px;
+  font-size: 20px;
+  border-radius: 5px;
 }
 
 .botao:hover{
-box-shadow: 0 15px 25px rgba(0,0,0,.6);
-font-size: 15px;
+box-shadow: 0 2px 2px rgba(0,0,0,.6);
+font-size: 21px;
 cursor: pointer;
 }
 
 
+
+
 /* The sidebar menu */
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 210px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #4180ab; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+height: 100%; /* Full-height: remove this if you want "auto" height */
+width: 210px; /* Set the width of the sidebar */
+position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+z-index: 1; /* Stay on top */
+top: 0; /* Stay at the top */
+left: 0;
+background-color: #EB7723; /* Black */
+overflow-x: hidden; /* Disable horizontal scroll */
+padding-top: 20px;
 }
 
 /* The navigation menu links */
 .sidenav button {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #111;
-  display: block;
-  background-color: #4180ab;
-  border: none;
+padding: 6px 8px 6px 16px;
+text-decoration: none;
+font-size: 25px;
+color: #111;
+display: block;
+background-color: #EB7723;
+border: none;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav button:hover {
-  color: #f1f1f1;
-  cursor: pointer;
+color: #f1f1f1;
+cursor: pointer;
 }
 
 .sidenav h3{
-  padding-left: 27px;
+color: white;
+padding-left: 27px;
 }
 
 .sidenav h3:hover{
-  color: #f1f1f1;
+color: #f1f1f1;
+cursor: pointer;
 }
 
 /* Style page content */
-
+.main {
+margin-left: 210px; /* Same as the width of the sidebar */
+padding: 0px 10px;
+background-color: #f9f2e7;
+}
 
 #logout{
-  margin-top: 390px;
+margin-top: 390px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav button {font-size: 18px;}
+.sidenav {padding-top: 15px;}
+.sidenav button {font-size: 18px;}
 }

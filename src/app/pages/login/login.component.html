@@ -1,7 +1,7 @@
 <body>
 
   <div class="sidenav">
-    <h3 style="font-size: 30px;" (click)="irParaHome()"><b>PickMeUP!</b></h3>
+    <h3 style="font-size: 30px;" (click)="irParaHome()"><b>PickMe<span style="color: black;">UP!</span></b></h3>
     <br>
     <button *ngIf="!hidden" (click)="irParaCadastro()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
       <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
@@ -35,18 +35,18 @@
         <h2>Login</h2>
         <mat-list>
           <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
-            <label style="padding-left: 16px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+            <label style="padding-left: 16px; font-size: 20px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
               <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
             </svg> Email: </label>
             <mat-list-item class="user-box"><input type="text"  formControlName="email"></mat-list-item>
             <mat-error style="padding-left: 16px; margin-bottom: 5px;" *ngIf="getErrorControl('email', 'email')">email inválido!</mat-error><br>
 
-            <label style="padding-left: 16px;"><svg xmlns="http://www.w3.org/2000/svg" whidth="16" height="12" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <label style="padding-left: 16px; font-size: 20px;"><svg xmlns="http://www.w3.org/2000/svg" whidth="16" height="16" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
               <path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391l-7 7V408v80 24H24h80 24V488 448h40 24V424 384h40 9.9l7-7 33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zm40-176c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40z"/></svg> Senha: </label>
             <mat-list-item class="user-box"><input type="text"  formControlName="senha"></mat-list-item>
             <mat-error style="padding-left: 16px; padding-bottom: 5px;" *ngIf="getErrorControl('senha', 'minlength')">Senha precisa ser maior</mat-error><br>
            
-            <button class="botao" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+            <button class="botao" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
               <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
             </svg> Entrar</button>
